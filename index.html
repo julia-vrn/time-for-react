@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>React Sandbox</title>
+</head>
+<body>
+    <div id="app">
+
+    </div>
+
+    <script type="text/babel">
+        /*create an app clased-based component*/
+        class App extends React.Component {
+            state = {
+                name: 'Naruto',
+                age: 25
+            }
+            handleClick(e){
+                console.log(e.target);
+                console.log(this.state);
+            }
+            handleMouseOver(e){
+                console.log(e.target);
+            }
+            handleCopy(e){
+                console.log("Meh.")
+            }
+            render() {
+                return (
+                    <div className="app-content">
+                        <h1>HI!</h1>   
+                        <p> My name is:  { this.state.name }, I am { this.state.age }. </p> 
+                        <button onClick={this.handleClick}> Click Me</button>
+                        <button onMouseOver={ this.handleMouseOver}> Hover me </button>
+                        <p onCopy={this.handleCopy}> What we think, we become </p>
+                    </div>
+                )
+            }
+
+        }
+
+        ReactDOM.render(<App />, document.getElementById('app'));
+    </script>
+    
+</body>
+</html>
