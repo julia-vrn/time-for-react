@@ -20,24 +20,28 @@
                 name: 'Naruto',
                 age: 25
             }
-            handleChange = (e) => {
+            handleClick = (e) => { //to acess the state inside the component use arrow functions
+                console.log(e.target);
+                console.log(this.state);
                 this.setState({
-                    name: e.target.value
-                })
+                    name: 'Yoshi',
+                    age: 25
+                });
             }
-            handleSubmit = (e) => {
-                e.preventDefault(); //to prevent the page from being refreshed
-                console.log(this.state.name);
+            handleMouseOver(e){
+                console.log(e.target);
+            }
+            handleCopy(e){
+                console.log("Meh.")
             }
             render() {
                 return (
                     <div className="app-content">
+                        <h1>HI!</h1>   
                         <p> My name is:  { this.state.name }, I am { this.state.age }. </p> 
-                        <form onSubmit={ this.handleSubmit }>
-                            <input type="text" onChange={this.handleChange} />
-                            <button>Submit</button>
-                        </form>
-
+                        <button onClick={this.handleClick}> Click Me</button>
+                        <button onMouseOver={ this.handleMouseOver}> Hover me </button>
+                        <p onCopy={this.handleCopy}> What we think, we become </p>
                     </div>
                 )
             }
